@@ -3,7 +3,7 @@ let radius = 11;
 
 let area = Math.PI * Math.pow(radius, 2);
 
-console.log(area)
+console.log(`Cycle: ${area}`)
 
 //4.2
 let length = 10;
