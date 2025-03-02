@@ -11,6 +11,8 @@ let width = 11;
 
 let rectangleArea = length * width;
 
+console.log(`Rectangle Area: ${rectangleArea}`);
+
 //4.3
 let cylinderRadius = 15;
 let cylinderHeight = 14;
