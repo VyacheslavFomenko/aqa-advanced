@@ -1,4 +1,4 @@
-let averageGrade = parseFloat(prompt("Введіть вашу середню оцінку (0-100):"));
+let averageGrade = 61;
 let gradeGroup = Math.floor(averageGrade / 10);
 
 switch (gradeGroup) {
