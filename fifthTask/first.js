@@ -1,4 +1,4 @@
-let averageGrade = parseFloat(prompt("Введіть вашу середню оцінку (0-100):"));
+let averageGrade = 60
 
 if (averageGrade < 60) {
     console.log("Незадовільно");
