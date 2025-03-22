@@ -6,6 +6,18 @@ class EBook extends Book {
         this.fileFormat = fileFormat;
     }
 
+    get fileFormat() {
+        return this._fileFormat;
+    }
+
+    set fileFormat(value) {
+        const validFormats = ['PDF', 'EPUB', 'MOBI', 'TXT'];
+        if (typeof value !== 'string' || !validFormats.includes(value.toUpperCase())) {
+            throw new Error('Формат файлу має бути одним із: PDF, EPUB, MOBI, TXT');
+        }
+        this._fileFormat = value.toUpperCase();
+    }
+
     printInfo() {
         super.printInfo();
         console.log(`Формат файлу: ${this.fileFormat}`);
@@ -13,11 +25,19 @@ class EBook extends Book {
     }
 }
 
-const ebook1 = new EBook(
-    "Цифрова фортеця",
-    "Ден Браун",
-    1998,
-    "PDF"
-);
+try {
+    // Створення екземплярів Book і EBook
+    const book1 = new Book("Пригоди Тома Сойєра", "Марк Твен", 1876);
+    const book2 = new Book("1984", "Джордж Орвелл", 1949);
+    const ebook1 = new EBook("Цифрова фортеця", "Ден Браун", 1998, "PDF");
+    const ebook2 = new EBook("Снігопад", "Ніл Стівенсон", 1992, "EPUB");
 
-ebook1.printInfo();
+    const booksArray = [book1, book2, ebook1, ebook2];
+
+    const oldestBook = Book.findOldestBook(booksArray);
+    console.log("Найдавніша книга:");
+    oldestBook.printInfo();
+
+} catch (error) {
+    console.error('Помилка:', error.message);
+}

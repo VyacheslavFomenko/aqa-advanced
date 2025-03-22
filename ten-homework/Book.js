@@ -1,25 +1,59 @@
-class Book{
-    constructor(title, author, year){
+class Book {
+    constructor(title, author, year) {
         this.title = title
         this.author = author
         this.year = year
     }
 
-  printInfo(){
-      console.log(`Назва: ${this.title}`);
-      console.log(`Автор: ${this.author}`);
-      console.log(`Рік видання: ${this.year}`);
-      console.log('-'.repeat(20));
-  }
+    get title() {
+        return this._title;
+    }
+
+    set title(value) {
+        if (typeof value !== 'string' || value.trim() === '') {
+            throw new Error('Назва має бути непорожнім рядком');
+        }
+        this._title = value.trim();
+    }
+
+    get author() {
+        return this._author;
+    }
+
+    set author(value) {
+        if (typeof value !== 'string' || value.trim() === '') {
+            throw new Error('Автор має бути непорожнім рядком');
+        }
+        this._author = value.trim();
+    }
+
+    get year() {
+        return this._year;
+    }
+
+    set year(value) {
+        const yearNum = Number(value);
+        if (isNaN(yearNum) || yearNum < 0 || yearNum > new Date().getFullYear()) {
+            throw new Error(`Рік має бути числом від 0 до ${new Date().getFullYear()}`);
+        }
+        this._year = yearNum;
+    }
+
+    printInfo() {
+        console.log(`Назва: ${this.title}`);
+        console.log(`Автор: ${this.author}`);
+        console.log(`Рік видання: ${this.year}`);
+        console.log('-'.repeat(20));
+    }
+
+    static findOldestBook(books) {
+        if (!Array.isArray(books) || books.length === 0) {
+            throw new Error('Потрібен непорожній масив книг');
+        }
+        return books.reduce((oldest, current) =>
+            current.year < oldest.year ? current : oldest
+        );
+    }
 }
-
-const book1 = new Book("Гаррі Поттер і філософський камінь", "Дж. К. Ролінґ", 1997);
-const book2 = new Book("1984", "Джордж Орвелл", 1949);
-const book3 = new Book("Майстер і Маргарита", "Михайло Булгаков", 1967);
-
-// Виклик методу printInfo для кожного екземпляру
-book1.printInfo();
-book2.printInfo();
-book3.printInfo();
 
 module.exports = Book
