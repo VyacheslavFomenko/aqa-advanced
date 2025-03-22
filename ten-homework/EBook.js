@@ -23,6 +23,13 @@ class EBook extends Book {
         console.log(`Формат файлу: ${this.fileFormat}`);
         console.log('-'.repeat(20));
     }
+
+    static fromBook(bookInstance, fileFormat) {
+        if (!(bookInstance instanceof Book)) {
+            throw new Error('Перший аргумент має бути екземпляром класу Book');
+        }
+        return new EBook(bookInstance.title, bookInstance.author, bookInstance.year, fileFormat);
+    }
 }
 
 try {
