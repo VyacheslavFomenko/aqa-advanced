@@ -15,8 +15,9 @@
     "url": "https://github.com/VyacheslavFomenko/aqa-advanced/issues"
   },
   "homepage": "https://github.com/VyacheslavFomenko/aqa-advanced#readme",
-  "description": "",
   "dependencies": {
     "chalk": "^5.4.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
