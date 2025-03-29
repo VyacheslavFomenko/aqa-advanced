@@ -1,10 +1,10 @@
 let person = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 25,
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 25,
 };
 
-person.email = "john@doe.com";
+person.email = 'john@doe.com';
 
 delete person.age;
 
