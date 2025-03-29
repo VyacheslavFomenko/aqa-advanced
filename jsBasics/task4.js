@@ -3,7 +3,7 @@ let radius = 11;
 
 let area = (Math.PI * Math.pow(radius, 2)).toFixed(2);
 
-console.log(`Cycle: ${area}`)
+console.log(`Cycle: ${area}`);
 
 //4.2
 let length = 10;
@@ -17,8 +17,10 @@ console.log(`Rectangle Area: ${rectangleArea}`);
 let cylinderRadius = 15;
 let cylinderHeight = 14;
 
-let cylinderArea = (Math.PI * Math.pow(cylinderRadius, 2) * cylinderHeight).toFixed(2);
+let cylinderArea = (
+  Math.PI *
+  Math.pow(cylinderRadius, 2) *
+  cylinderHeight
+).toFixed(2);
 
 console.log(`Cylinder Area: ${cylinderArea}`);
-
-
